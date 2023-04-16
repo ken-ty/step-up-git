@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "./node_modules/.bin/git-cz"
+    "commit": "./node_modules/.bin/git-cz",
+    "dev": "marp --html --server .",
+    "build": "marp --html --pdf --allow-local-files --title 'スライドのタイトル' README.md -o ./README.pdf"
   },
   "author": "ken-ty",
   "license": "MIT",

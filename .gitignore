@@ -1,1 +1,5 @@
+# node
 node_modules/*
+
+# mac
+.DS_Store
