@@ -4,11 +4,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # この PR の ブランチに checkout する
-    - name: Install dependencies  # npm 設定
+    # リポジトリをチェックアウトする
+    - name: Checkout branch
+      uses: actions/checkout@v2 # この PR の ブランチに checkout する
+
+    # fonts-noto をインストールする
+    - name: Install fonts-noto
+      run: sudo apt install fonts-noto
+    
+    # npm で必要なパッケージをインストールする
+    - name: Install dependencies
       run: npm ci
-    - name: Build
+
+    # slide.pdf を作成
+    - name: Build slide
       run: npm run build
+    
+    # README.pdf を作成
+    - name: Build README
+      run: npm run build:README
+
+    # release を作成する
     - name: Create release
       id: create_release
       uses: actions/create-release@v1.0.0
@@ -19,8 +35,10 @@ jobs:
         release_name: Release ${{ github.ref_name }}
         draft: false
         prerelease: false
-    - name: Upload Release Asset # release に asset を追加
-      id: upload-release-asset-linux
+
+    # release に slide.pdf を追加
+    - name: Upload Release slide.pdf of Asset
+      id: upload-release-asset-slide
       uses: actions/upload-release-asset@v1.0.2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -28,4 +46,16 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./dist/slide.pdf
         asset_name: slide.pdf
+        asset_content_type: application/pdf
+
+    # release に README.pdf を追加
+    - name: Upload Release README.pdf of Asset
+      id: upload-release-asset-README
+      uses: actions/upload-release-asset@v1.0.2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./dist/README.pdf
+        asset_name: README.pdf
         asset_content_type: application/pdf
