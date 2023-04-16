@@ -6,7 +6,8 @@ git の上級者になれば, あなたやあなたのチームの **生産性�
 git 上級者になる為は, どこかで git に :eye: **目覚める** :eye: 必要があります。
 あなたの :eye: **目覚める** :eye: きっかけになれると幸いです。
 
-(この README は [marp](https://marp.app/) によって スライドとしてご覧になれます。[スライド](README.pdf))
+(仰々しいタイトルですが, 個人的な git 備忘録です...)
+(この README は [marp](https://marp.app/) によって スライドとしてご覧になれます。[スライドはこちら](README.pdf))
 
 ---
 
@@ -67,7 +68,8 @@ nvm を事前にインストールしてください. インストール方法�
 
 - `npm run commit`: commit を作成.
 - `npm run dev`: marp サーバーを立てる.
-- `npm run build`: 指定した .md ファイル を pdf のスライドに変換する.
+- `npm run build`: slide.md ファイル を pdf のスライドに変換する.
+- `npm run build:README`: README.md ファイル を pdf のスライドに変換する.
 
 ---
 
