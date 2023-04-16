@@ -5,12 +5,29 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-
-    # ここから、実行するコマンドを指定する
-    - name: Install dependencies
+    - uses: actions/checkout@v2 # この PR の ブランチに checkout する
+    - name: Install dependencies  # npm 設定
       run: npm ci
     - name: Build
       run: npm run build
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+    - name: Upload Release Asset # release に asset を追加
+      id: upload-release-asset-linux
+      uses: actions/upload-release-asset@v1.0.2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/
+        asset_name: slides.pdf
+        asset_content_type: application/pdf
