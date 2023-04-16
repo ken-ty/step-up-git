@@ -1,7 +1,5 @@
 name: CI
-
 on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,6 +26,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./${{ github.event.repository.name }}/dist/slide.pdf
-        asset_name: ${{ github.event.repository.name }}dist/slide.pdf
+        asset_path: ./dist/slide.pdf
+        asset_name: slide.pdf
         asset_content_type: application/pdf
