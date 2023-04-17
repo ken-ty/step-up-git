@@ -1,9 +1,11 @@
 name: CI
+
+# `release/*` ブランチが github に作成されたタイミングで実行されます.
 on:
-  pull_request:
+  push:
     branches:
-      - 'releases/**'
-    types: [opened]
+      - release
+
 jobs:
   build:
     runs-on: ubuntu-latest
