@@ -1,5 +1,9 @@
 name: CI
-on: [push]
+on:
+  pull_request:
+    branches:
+      - 'releases/**'
+    types: [opened]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -8,7 +12,7 @@ jobs:
     - name: Checkout branch
       uses: actions/checkout@v2 # この PR の ブランチに checkout する
 
-    # fonts-noto をインストールする
+    # fonts-noto をインストールする. 日本語が文字化けする為.
     - name: Install fonts-noto
       run: sudo apt install fonts-noto
     

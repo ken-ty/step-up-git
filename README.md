@@ -7,7 +7,7 @@ git 上級者になる為は, どこかで git に :eye: **目覚める** :eye: 
 あなたの :eye: **目覚める** :eye: きっかけになれると幸いです。
 
 (仰々しいタイトルですが, 個人的な git 備忘録です...)
-(この README は [marp](https://marp.app/) によって スライドとしてご覧になれます。[スライドはこちら](README.pdf))
+(この README は [marp](https://marp.app/) によって スライドとしてご覧になれます。)
 
 ---
 
@@ -45,9 +45,9 @@ Git 上級者への道 1, 2 を完了している想定。
 4 の皆様は マサカリ :axe: を投げる準備をしてご覧いただけると幸いです。
 細かい内容でも issue 大歓迎です。 :memo:
 
-## ゴール
+## Get Started!
 
-**git の仕組みを理解しよう!!!**
+[こちら](https://github.com/ken-ty/step-up-git/releases/latest)から最新のスライドを取得しよう!
 
 ---
 
@@ -70,6 +70,15 @@ nvm を事前にインストールしてください. インストール方法�
 - `npm run dev`: marp サーバーを立てる.
 - `npm run build`: slide.md ファイル を pdf のスライドに変換する.
 - `npm run build:README`: README.md ファイル を pdf のスライドに変換する.
+
+
+最初に叩くコマンド
+
+```
+nvm use        # node のバージョンを揃える
+npm ci         # 開発パッケージをインストール
+npm run dev    # 開発サーバーを起動
+```
 
 ---
 
