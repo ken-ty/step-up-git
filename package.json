@@ -1,6 +1,6 @@
 {
   "name": "step-up-git",
-  "version": "1.0.2",
+  "version": "0.0.11",
   "description": "git の 上級者になれば, あなたやあなたのチームの生産性が up します！ プログラミングのジャンルが変わっても, VCS の知識は必ず役に立つでしょう！ git 上級者になる為は, どこかで git に目覚める必要があります。 このリポジトリがその目覚めのきっかけになると幸いです。",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "commit": "./node_modules/.bin/git-cz",
     "dev": "marp --html --server .",
     "build": "marp --html --pdf --allow-local-files slides/slide.md -o ./dist/slide.pdf",
-    "build:README": "marp --html --pdf --allow-local-files README.md -o ./dist/README.pdf"
+    "build:README": "marp --html --pdf --allow-local-files README.md -o ./dist/README.pdf",
+    "postversion": "git checkout -b release/${npm_package_version} | git push origin HEAD | git checkout -"
   },
   "author": "ken-ty",
   "license": "MIT",

@@ -70,6 +70,7 @@ nvm を事前にインストールしてください. インストール方法�
 - `npm run dev`: marp サーバーを立てる.
 - `npm run build`: slide.md ファイル を pdf のスライドに変換する.
 - `npm run build:README`: README.md ファイル を pdf のスライドに変換する.
+- `npm version [major | minor | patch]`: バージョンアップ commit を作成して pushする.
 
 
 最初に叩くコマンド
