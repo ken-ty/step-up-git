@@ -9,9 +9,9 @@
     "dev": "marp --html --server .",
     "build": "marp --html --pdf --allow-local-files slides/slide.md -o ./dist/slide.pdf",
     "build:README": "marp --html --pdf --allow-local-files README.md -o ./dist/README.pdf",
-    "preversion": "echo release/v${npm_package_version + 0.0.1}",
-    "version": "echo release/v${npm_package_version + 1}",
-    "postversion": "git checkout -b release/v${npm_package_version} | git push origin HEAD"
+    "preversion": "echo release/v${npm_package_version}",
+    "version": "echo release/v${npm_package_version}",
+    "postversion": "echo release/v${npm_package_version} |git checkout -b release/v${npm_package_version} | /*git push origin HEAD*/"
   },
   "author": "ken-ty",
   "license": "MIT",
