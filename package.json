@@ -9,7 +9,7 @@
     "dev": "marp --html --server .",
     "build": "marp --html --pdf --allow-local-files slides/slide.md -o ./dist/slide.pdf",
     "build:README": "marp --html --pdf --allow-local-files README.md -o ./dist/README.pdf",
-    "version":  "git checkout release/${npm_package_version}"
+    "version": "git checkout -b release/${npm_package_version}"
   },
   "author": "ken-ty",
   "license": "MIT",
